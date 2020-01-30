@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 with open('dp.html',encoding='utf-8_sig') as f:
     html = f.read()
 
-#print(html)
+#print(html) これはデバッグ用
 
 
 for partial_html in re.findall(r'<a itemprop="url".*?</ul>\s*</a></li>',html,re.DOTALL):
