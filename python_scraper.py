@@ -1,19 +1,18 @@
 import csv
 from typing import List
-
 import requests
 import lxml.html
 
 
-def maiin():
+def main():
     """
     メイン処理
     """
 
-    url = 'https;//gihyo.jp/dp'
+    url = 'https://gihyo.jp/dp'
     html = fetch(url)
     books = scrape(html,url)
-    save(books.csv,books)
+    save('books.csv',books)
 
 def fetch(url:str) -> str:
     """
@@ -28,9 +27,9 @@ def scrape(html: str, base_url: str) -> List[dict]:
     書籍情報の抽出
     """
 
-    book = []
+    books = []
     html = lxml.html.fromstring(html)
-    html.make_links_abspolute(base_url)
+    html.make_links_absolute(base_url)
 
     for a in html.cssselect('#listBook > li > a[itemprop="url"]'):
         url = a.get('href')
@@ -45,7 +44,7 @@ def save(file_path: str, books: List[dict]):
 
     with open(file_path, 'w', newline='') as f:
         writer = csv.DictWriter(f,['url','title'])
-        writer.writer()
+        writer.writeheader()
         writer.writerows(books)
 
 if __name__ == '__main__':
