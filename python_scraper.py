@@ -38,7 +38,7 @@ def scrape(html: str, base_url: str) -> List[dict]:
         title = p.text_content()
 
         books.append({'url': url,'title': title})
-    retuen books
+    return books
 
 def save(file_path: str, books: List[dict]):
 
@@ -50,6 +50,6 @@ def save(file_path: str, books: List[dict]):
 
 if __name__ == '__main__':
     main()
-    
+
 
 
