@@ -20,3 +20,4 @@ for partial_html in re.findall(r'<a itemprop="url".*?</ul>\s*</a></li>',html,re.
 
     print(url,title)
 
+#コメント追加
