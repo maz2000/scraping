@@ -11,6 +11,5 @@ browser.submit_selected()
 page = browser.get_current_page()
 print(page)
 for a in page.select('h3 > a'):
-    print('Hit!')
     print(a.text)
     print(browser.absolute_url(a.get('href')))

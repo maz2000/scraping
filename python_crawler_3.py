@@ -1,3 +1,5 @@
+#一件だけ取得するコード
+
 from typing import Iterator
 import requests
 import lxml.html
