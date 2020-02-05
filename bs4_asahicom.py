@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 import csv
 
 page_url = 'http://www.asahi.com/'
@@ -8,8 +9,11 @@ soup = BeautifulSoup(r.content,'html.parser')
 
 head_tags = soup.find(class_='List ListHeadline HeadlineAfter HomeTop') #タグが入っているものをh1_tagsに全部取得
 
-for news in head_tags:
-    temp_articles = news.find('a')
-    for a in temp_articles:
-        print(a)
+for q in head_tags('a'):
+    title = q.text
+    url = q.get('href')
+    base_path = 'https://www.asahi.com'
+    absolute_path = urljoin(base_path, url)
+    print(title,absolute_path)
+ 
 
