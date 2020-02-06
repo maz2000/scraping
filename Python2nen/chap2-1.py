@@ -5,6 +5,7 @@ url = 'https://www.ymori.com/books/python2nen/test2.html'
 html = requests.get(url)
 soup = BeautifulSoup(html.content,'html.parser')
 
+print(soup)
 print('----------------------------')
 
 print(soup.find('title'))
