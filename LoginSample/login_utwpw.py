@@ -21,7 +21,18 @@ res.raise_for_status()
 #print(res.text)
 
 soup = BeautifulSoup(res.text,'html.parser')
-#a = soup.select_one('.islogin a')
-a = soup.find(class_='islogin')
-print(a)
+a = soup.select_one('.islogin a')
+#a = soup.find(class_='islogin')
+
+if a is None:
+    print('ログインできませんでした')
+    quit()
+
+url_mypage = urljoin(url_login,a.attrs['href'])
+print('マイページ',url_mypage)
+
+res = session.get(url_mypage)
+res.raise_for_status()
+print(res.text)
+
 
