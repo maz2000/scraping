@@ -29,6 +29,8 @@ r.raise_for_status() #ちゃんとアクセスできなかったら処理を中�
 r.encoding = r.apparent_encoding #エンコーディングを正しく設定
 soup = BeautifulSoup(r.text,'html.parser')
 
+print(soup.text)
+
 cnt = 1
 tbls = soup.find_all('table')
 for tbl in tbls[3]('td',bgcolor='#FFFFFF'):
