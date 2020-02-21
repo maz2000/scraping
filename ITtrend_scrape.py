@@ -1,6 +1,6 @@
 import re
 import time
-from pymongo import MongoClient
+#from pymongo import MongoClient
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -22,4 +22,4 @@ soup = BeautifulSoup(r.text,'html.parser')
 
 print(soup.text)
 
-#コメント
+#コメント変更
