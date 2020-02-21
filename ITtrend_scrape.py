@@ -21,3 +21,5 @@ r.encoding = r.apparent_encoding #エンコーディングを正しく設定
 soup = BeautifulSoup(r.text,'html.parser')
 
 print(soup.text)
+
+#コメント
